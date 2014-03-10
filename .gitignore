@@ -2,3 +2,4 @@
 .idea/dataSources.xml
 tdc/.idea/*
 tdc/tdc.sqlite3
+*.pyc

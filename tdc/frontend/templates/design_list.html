@@ -1,21 +1,35 @@
 {% extends '_base.html' %}
+{% block designs_active %}active{% endblock %}
 {% block content %}
 
-    <table class="table">
-    <tr>
-        <td>Titel</td>
-        <td>Beschreibung</td>
-        <td>Erscheinungsdatum</td>
-        <td>Kategorie</td>
-    </tr>
-    {% for design in designs_list %}
-        <tr>
-            <td>{{ design.titel }}</td>
-            <td>{{ design.description }}</td>
-            <td>{{ design.release_date }}</td>
-            <td>{{ design.category }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+        <div class="row">
+            <div class="col-xs-1">
+                Kategorien:
+            </div>
+            {% for category in categories %}
+                <div class="col-xs-1">
+                    <span class="label label-default">{{ category.titel }}</span>
+                </div>
+            {% endfor %}
+        </div>
+
+        <br>
+
+        <div class="list-group">
+            {% for design in designs_list %}
+            <a href="#" class="list-group-item">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="http://chrispiascik.wpengine.netdna-cdn.com/wp-content/uploads/2013/09/1444-20130902-D-Pattern.jpg" alt="..." class="img-responsive">
+                    </div>
+                    <div class="col-md-10">
+                        <h4 class="list-group-item-heading">{{ design.titel }}</h4>
+                        <span class="label label-primary">{{ design.category }}</span>
+                        <p class="list-group-item-text">{{ design.description|truncatechars:400 }}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
 
 {% endblock %}
