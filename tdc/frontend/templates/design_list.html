@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% block content %}
+
+    <table class="table">
+    <tr>
+        <td>Titel</td>
+        <td>Beschreibung</td>
+        <td>Erscheinungsdatum</td>
+        <td>Kategorie</td>
+    </tr>
+    {% for design in designs_list %}
+        <tr>
+            <td>{{ design.titel }}</td>
+            <td>{{ design.description }}</td>
+            <td>{{ design.release_date }}</td>
+            <td>{{ design.category }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
