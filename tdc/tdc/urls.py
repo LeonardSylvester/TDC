@@ -10,7 +10,11 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^design/', DesignListView.as_view(), name='design_list'),
+    url(r'^gallery/$', GalleryListView.as_view(), name='gallery_list'),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login',
+    {'template_name': 'login.html', 'extra_context': {'next':'/'}}),
+    url(r'^impressum/', TemplateView.as_view(template_name="impressum.html"), name='impressum'),
+    url(r'^gallery/(?P<pk>\d+)/$', GalleryDetailView.as_view(), name='gallery_detail'),
 
 )
 

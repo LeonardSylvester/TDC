@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+{% block designs_active %}active{% endblock %}
+{% block content %}
+
+    <div class="row">
+        {% for design in designs %}
+            <div class="col-md-3 top-buffer">
+                <img src="http://placehold.it/200x200" alt="...">
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+
+
+{% endblock %}

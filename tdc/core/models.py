@@ -7,7 +7,7 @@ class Design(models.Model):
     titel = models.CharField(max_length=250)
     description = models.TextField()
     release_date = models.DateTimeField(auto_created=True)
-    category = models.ForeignKey('Category')
+    gallery = models.ForeignKey('Gallery')
 
     def __unicode__( self ):
         return self.titel + ', ' + str(self.release_date) + ', ' + self.description
@@ -21,8 +21,9 @@ class SampleImage(models.Model):
         return self.design.titel + ', ' + self.image.name
 
 
-class Category(models.Model):
+class Gallery(models.Model):
     titel = models.CharField(max_length=250)
+    titel_image = models.ImageField(upload_to='media/images/%Y/%m/%d', blank=True, null=True)
 
     def __unicode__( self ):
         return self.titel

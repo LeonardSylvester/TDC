@@ -21,6 +21,7 @@
         #test-title-image {
             width: 100%;
         }
+        .top-buffer { margin-top:40px; }
     </style>
 </head>
 <body>
@@ -33,10 +34,10 @@
             <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
                     <li class="{% block home_active %}{% endblock %}"><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Start</a></li>
-                    <li class="{% block designs_active %}{% endblock %}"><a href="{% url 'design_list' %}"><span class="glyphicon glyphicon-file"></span> Designs</a></li>
+                    <li class="{% block designs_active %}{% endblock %}"><a href="{% url 'gallery_list' %}"><span class="glyphicon glyphicon-th-large"></span> Gallerie</a></li>
                     <li class="{% block unternehmen_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Unternehmen</a></li>
                     <li class="{% block kontakt_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-comment"></span> Kontakt</a></li>
-                    <li class="{% block impressum_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-align-left"></span> Impressum</a></li>
+                    <li class="{% block impressum_active %}{% endblock %}"><a href="{% url 'impressum' %}"><span class="glyphicon glyphicon-align-left"></span> Impressum</a></li>
                 </ul>
             </div>
             <div class="col-md-10">
@@ -45,5 +46,10 @@
             </div>
         </div>
     </div>
+    <!--div id="footer">
+        <div class="container">
+            <p class="text-muted">Place sticky footer content here.</p>
+        </div>
+    </div-->
 </body>
 </html>
