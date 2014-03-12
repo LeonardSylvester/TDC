@@ -1,16 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title></title>
-
+    {% load staticfiles %}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,11 +23,10 @@
     </style>
 </head>
 <body>
-    <img src="http://placehold.it/4000x200/7293BD/EFE4B3" id="test-title-image">
+
     <div class="container">
-        <div class="page-header">
-            <h1>TDC Design <small>T.D.C. Design KG</small></h1>
-        </div>
+        <img src="http://placehold.it/4000x400/7193BC/FFFFFF&text=T.D.C.+Design+KG" id="test-title-image">
+        <br><br><br>
         <div class="row">
             <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
@@ -38,6 +35,9 @@
                     <li class="{% block unternehmen_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Unternehmen</a></li>
                     <li class="{% block kontakt_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-comment"></span> Kontakt</a></li>
                     <li class="{% block impressum_active %}{% endblock %}"><a href="{% url 'impressum' %}"><span class="glyphicon glyphicon-align-left"></span> Impressum</a></li>
+                    {% if user.is_authenticated %}
+                          <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-remove-circle"></span> Abmelden</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="col-md-10">
@@ -46,10 +46,9 @@
             </div>
         </div>
     </div>
-    <!--div id="footer">
-        <div class="container">
-            <p class="text-muted">Place sticky footer content here.</p>
-        </div>
-    </div-->
+    <br><br><br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>

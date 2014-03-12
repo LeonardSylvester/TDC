@@ -5,10 +5,28 @@
     <div class="row">
         {% for design in designs %}
             <div class="col-md-3 top-buffer">
-                <img src="http://placehold.it/200x200" alt="...">
+                <img src="http://placehold.it/200x200&text={{ design.titel }}" data-toggle="modal" data-target="#myModal{{ forloop.counter }}" class="img-rounded">
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">{{ design.titel }}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <img src="http://placehold.it/520x100/">
+                    {{ design.description }}
+                  </div>
+                </div>
+              </div>
             </div>
         {% endfor %}
     </div>
+
 
 
 

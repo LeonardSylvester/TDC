@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import *
 from core.models import Design, Gallery
+import random
 
 
 class HomeView(TemplateView):
@@ -25,4 +26,7 @@ class GalleryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(GalleryDetailView, self).get_context_data(**kwargs)
         context['designs'] = Design.objects.filter(gallery=self.get_object())
+        for design in context['designs']:
+            r = lambda: random.randint(0,255)
+            design.rand_color = '%02X%02X%02X' % (r(),r(),r())
         return context

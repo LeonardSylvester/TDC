@@ -37,11 +37,11 @@ ALLOWED_HOSTS = []
 MEDIA_ROOT = (os.path.join(PROJECT_DIR,'/media'),)
 
 MEDIA_URL = '/media/'
-"""
+
 STATICFILES_DIRS = (
-    os.path.join(os.path.dirname(__file__), "/static")
+    os.path.join(BASE_DIR, "frontend/../static"),
+    'frontend/../static/',
 )
-"""
 
 STATIC_URL = '/static/'
 
